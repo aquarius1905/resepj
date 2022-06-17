@@ -1,0 +1,255 @@
+/*---------------------------------
+  タイトル
+---------------------------------*/
+.shop-info-ttl,
+.reservation-info-ttl,
+.rating-info-ttl {
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+/*---------------------------------
+  店舗情報作成・確認
+---------------------------------*/
+.shop-dashboard {
+    width: 60%;
+    margin: 0 auto 40px;
+}
+.shop-info {
+    min-width: 100%;
+    margin-bottom: 30px;
+}
+.shop-info-form {
+    font-size: 18px;
+    background-color: #305dff;
+    color: #fff;
+    border-radius: 8px;
+}
+.shop-info-content {
+    padding: 30px;
+}
+.shop-info-item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.shop-info-lbl {
+    display: block;
+    width: 30%;
+}
+.shop-info-name {
+    border: none;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 40px;
+    font-size: 18px;
+    width: 65%;
+}
+.shop-info-select-wrap {
+    position: relative;
+    width: 65%;
+}
+.shop-info-select-wrap:after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    color: #ccc;
+    transform: translateY(-50%);
+    font-size: 20px;
+    pointer-events: none;
+}
+.shop-info-select {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 6px;
+    padding: 0 10px;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+}
+.shop-info-select::-ms-expand {
+    display: none;
+}
+.shop-info-overview {
+    width: 65%;
+    height: 250px;
+    resize: none;
+    font-size: 18px;
+    border-radius: 6px;
+}
+.shop-info-course,
+.shop-info-price {
+    border: none;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 40px;
+    font-size: 18px;
+    width: 35%;
+    margin-right: 10px;
+}
+.shop-info-price {
+    width: 15%;
+    margin-left: 10px;
+}
+.shop-info-price::-webkit-inner-spin-button,
+.shop-info-price::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+.shop-img-file {
+    font-size: 18px;
+}
+.shop-img-wrap {
+    width: 70%;
+    margin-left: auto;
+}
+.shop-img {
+    border-radius: 6px;
+}
+.shop-btn {
+    background-color: #0538ff;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    width: 100%;
+    padding: 20px 0;
+    cursor: pointer;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+/*---------------------------------
+  予約情報/評価情報
+---------------------------------*/
+.reservation-info,
+.rating-info {
+    width: 100%;
+}
+.reservation-info-table,
+.rating-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 30px;
+}
+.reservation-info-table tr,
+.rating-info-table tr {
+    padding: 6px;
+}
+.reservation-info-table thead tr,
+.rating-info-table thead tr {
+    background-color: #305dff;
+    color: #fff;
+}
+.reservation-info-table th,
+.rating-info-table th {
+    padding: 16px 10px 16px 16px;
+    text-align: left;
+}
+.reservation-info-table td,
+.rating-info-table td {
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 16px 10px 16px 16px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .shop-dashboard {
+        width: 90%;
+    }
+    .shop-info-item {
+        display: block;
+    }
+    .shop-info,
+    .reservation-info,
+    .rating-info {
+        width: 100%;
+    }
+    .shop-info-lbl {
+        width: auto;
+        margin-bottom: 10px;
+    }
+    .shop-info-name {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .shop-info-content {
+        padding: 20px;
+    }
+    .shop-info-select-wrap,
+    .shop-info-overview {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .shop-info-course {
+        width: 30%;
+    }
+    .shop-info-price {
+        width: 20%;
+    }
+    .shop-img-file {
+        font-size: 18px;
+    }
+    .rating-info-ttl {
+        margin: 30px 0;
+    }
+    .reservation-info-table,
+    .rating-info-table {
+        border: 0;
+        width: 100%;
+        background-color: #305dff;
+        color: #fff;
+    }
+    .reservation-info-table thead,
+    .rating-info-table thead{
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    .reservation-info-table tr,
+    .rating-info-table tr {
+        display: block;
+    }
+    .reservation-info-table th,
+    .rating-info-table th {
+        display: block;
+        border: none;
+    }
+    .reservation-info-table td,
+    .rating-info-table td {
+        border-bottom: none;
+        display: block;
+        font-size: 14px;
+        position: relative;
+        padding: 10px 10px 10px 6px;
+        border-right: none;
+        background-color: #305dff;
+        color: #fff;
+        font-size: 16px;
+        word-wrap: break-word;
+    }
+    .reservation-info-table td:last-child,
+    .rating-info-table td:last-child {
+        border-bottom: 0;
+    }
+    .reservation-info-table td::before,
+    .rating-info-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+}

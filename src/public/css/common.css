@@ -1,0 +1,143 @@
+body {
+    background-color: #eee;
+    font-size: 18px;
+}
+.header {
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+}
+.nav-link {
+    text-decoration: none;
+    color: #305dff;
+    font-size: 30px;
+}
+.nav-btn {
+    border: none;
+    color: #305dff;
+    font-size: 30px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.nav {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    background: #fff;
+    transition: .7s;
+    text-align: center;
+    z-index: 1;
+}
+.nav-list {
+    padding-top: 80px;
+}
+.nav-item {
+    list-style-type: none;
+    margin-top: 40px;
+}
+.menu-ttl-wrap {
+    display: flex;
+    align-items: center;
+}
+.menu {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    background-color: #305dff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+.menu__line--top {
+    width: 30%;
+    top: 15px;
+}
+.menu__line--middle {
+    width: 50%;
+    top: 23.7px;
+}
+.menu__line--bottom {
+    width: 20%;
+    bottom: 15px;
+}
+.menu__line--top,
+.menu__line--middle,
+.menu__line--bottom {
+    display: inline-block;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    transition: 0.5s;
+}
+.menu.open span:nth-of-type(1) {
+    top: 25px;
+    width: 60%;
+    transform: rotate(45deg);
+}
+.menu.open span:nth-of-type(2) {
+    opacity: 0;
+}
+.menu.open span:nth-of-type(3) {
+    top: 25px;
+    width: 60%;
+    transform: rotate(-45deg);
+}
+.in {
+    transform: translateX(100%);
+}
+.ttl {
+    color: #305dff;
+    font-weight: bold;
+    font-size: 34px;
+    margin-left: 20px;
+}
+.btn {
+    display: inline-block;
+    background-color: #305dff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.login-btn,
+.register-btn {
+    background-color: #305dff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 18px;
+}
+.box-shadow {
+    box-shadow: 2px 2px 4px 1px #888;
+}
+.select-wrap {
+    position: relative;
+}
+.select-wrap:after {
+    content: "\25BC";
+    position: absolute;
+    right: 7%;
+    top: 35%;
+    color: #ccc;
+    transform: translateY(-50%);
+    font-size: 20px;
+    pointer-events: none;
+}
+@media screen and (max-width: 768px) {
+    .header-inner {
+        display: block;
+        align-items: normal;
+    }
+    .select-wrap:after {
+        right: 2%;
+    }
+}

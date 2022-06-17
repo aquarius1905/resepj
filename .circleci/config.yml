@@ -1,0 +1,66 @@
+version: 2
+
+jobs:
+  # build ジョブ: CircleCI 上で Docker コンテナを作成してテストする
+  build:
+    docker:
+      - image: cimg/php:8.0
+        environment:
+          - APP_DEBUG: true
+          - APP_ENV: testing
+          - APP_KEY: base64:ZPBxlFwplR4xKejgdnK5ba28gfWZK3L/sdoYjHC5uPM=
+          - DB_CONNECTION: mysql
+          - DB_DATABASE: resedb_test
+          - DB_USERNAME: root
+
+      - image: cimg/mysql:8.0
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: true
+          - MYSQL_DATABASE: resedb_test
+
+    working_directory: ~/ci-demo
+    steps:
+      - checkout
+      - run:
+          name: Composer Update
+          working_directory: src
+          command: composer update
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "src/composer.json" }}
+      - run:
+          name: Migration
+          working_directory: src
+          command: php artisan migrate
+      - run:
+          name: Run PHPUnit
+          working_directory: src
+          command: vendor/bin/phpunit
+
+  # deploy ジョブ: EC2 に SSH 接続して、デプロイを実行する
+  deploy:
+    machine:
+      image: ubuntu-2004:202201-02
+    steps:
+      - checkout
+      # CircleCI に登録した秘密鍵を呼び出す
+      - add_ssh_keys:
+      # CircleCI に登録した環境変数を使って SSH
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www && git pull origin main'
+
+workflows:
+  version: 2
+  # build_and_deploy ジョブ: 一番最初に呼ばれるジョブ
+  build_and_deploy:
+    # build ジョブと deploy ジョブを登録する
+    jobs:
+      - build
+      - deploy:
+          requires:
+            # 依存性あるため deploy ジョブより先に build ジョブを実行する
+            - build
+          # main ブランチに push された場合のみ deploy ジョブを実行する
+          filters:
+            branches:
+              only: main
