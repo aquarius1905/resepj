@@ -486,12 +486,7 @@
 -   docker-laravel/src ディレクトリにresepjプロジェクトを配置する
 
     ```
-    $ git clone git@github.com:ucan-lab/docker-laravel.git
-
-    # Laravelプロジェクトを docker-laravel/src へクローンする
-    $ git clone git@github.com:aquarius1905/resepj.git docker-laravel/src
-
-    $ cd docker-laravel
+    $ git clone git@github.com:aquarius1905/resepj.git
     $ make init
     ```
 
