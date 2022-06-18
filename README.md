@@ -379,15 +379,18 @@
 -   [Gitのインストール](https://git-scm.com/)
 -   [GitHubのSSH接続設定](https://qiita.com/ucan-lab/items/e02f2d3a35f266631f24)
 -   [Docker for Mac/Windows のインストール (v3.4.0以上)](https://www.docker.com/products/docker-desktop/)
+
+-   以下のコマンドを実行し、インストールされていることを確認する
     ```
     $ git --version
     git version 2.34.1.windows.1
     $ docker --version
     Docker version 20.10.14, build a224086
-    $ docker compose version    
+    $ docker compose version
     Docker Compose version v2.5.1
     ```
-    -   ※Docker Composeのバージョンについて、Compose V2がインストールされていない場合は、公式に沿ってインストール方法を確認する
+    -   ※Docker Composeのバージョンについて、Compose V2がインストールされていない場合は、
+        公式に沿ってインストール方法を確認する
     -   https://docs.docker.com/compose/cli-command/#installing-compose-v2
 
 ### Docker Content Trust（DCT）を有効にする

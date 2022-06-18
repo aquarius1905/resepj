@@ -4,7 +4,6 @@ namespace App\Responses;
 
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
-
 class AdminLoginResponse implements LoginResponseContract
 {
     /**
@@ -16,7 +15,7 @@ class AdminLoginResponse implements LoginResponseContract
     public function toResponse($request)
     {
         return $request->wantsJson()
-                    ? response()->json(['two_factor' => false])
-                    : redirect()->intended('admin/dashboard');
+            ? response()->json(['two_factor' => false])
+            : redirect()->intended('admin/dashboard');
     }
 }
