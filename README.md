@@ -402,6 +402,12 @@
     -   イメージの利用時(pull など)に「発行者」と「イメージが改ざんされていないこと」を検証する
     -   push, build, create, pull, run のコマンド実行時に自動で機能する
 
+### resepjリポジトリをクローンする
+
+    ```
+    $ git clone git@github.com:aquarius1905/resepj.git
+    ```
+
 ### コンテナ構成
 
 -   下記の4つのコンテナで構成する
@@ -466,7 +472,7 @@
 
 ### Laravel側の設定
 
--   「.env」を以下のように設定する
+-   メールに関して「.env」を以下のように設定する
 
     ```
     MAIL_DRIVER=smtp
@@ -480,13 +486,9 @@
     MAIL_ENCRYPTION=null
     ```
 
-### 既存のLaravelプロジェクトの環境を構築する
-
--   [docker-laravel](https://github.com/ucan-lab/docker-laravel)リポジトリを利用する
--   docker-laravel/src ディレクトリにresepjプロジェクトを配置する
+###  resepjディレクトリ直下で以下のコマンドを実行
 
     ```
-    $ git clone git@github.com:aquarius1905/resepj.git
     $ make init
     ```
 
