@@ -455,7 +455,7 @@
     -   ウェブサーバーのコンテナ
     -   HTTPリクエストを受けて、HTTPレスポンスを返す
     -   phpファイルへのアクセスはappコンテナに投げる
-    -    [nginx](https://hub.docker.com/_/nginx), [node](https://hub.docker.com/_/node) のベースイメージを利用する
+    -   [nginx](https://hub.docker.com/_/nginx), [node](https://hub.docker.com/_/node) のベースイメージを利用する
 
 -   dbコンテナ
 
@@ -490,20 +490,25 @@
 
     $ make init
 
-### Laravel側の設定
+### .envの設定
 
 -   メールに関して「.env」を以下のように設定する
+-   カード決済に必要なSTRIPE_KEYとSTRIPE_SECRETは各自のものを設定する（Stripeの導入に関しては後述）
 
     ```
-    MAIL_DRIVER=smtp
+    MAIL_MAILER=smtp
     MAIL_HOST=コンテナ名
     MAIL_PORT=1025
     MAIL_USERNAME=null
     MAIL_PASSWORD=null
     MAIL_ENCRYPTION=null
     MAIL_FROM_ADDRESS="送信側のメールアドレス"
-    MAIL_FROM_NAME="差出人"
-    MAIL_ENCRYPTION=null
+    MAIL_FROM_NAME="${APP_NAME}"
+
+    ～～省略～～
+
+    STRIPE_KEY=
+    STRIPE_SECRET=
     ```
 
 ### 推奨開発パッケージのインストール
@@ -514,6 +519,12 @@
     ```
     $ make install-recommend-packages
     ```
+
+### Stripeの導入
+
+-   [Stripe](https://stripe.com/jp) のアカウントを取得
+-   Stripeの開発者用のダッシュボードからAPIキー（公開可能キーとシークレットキー）を取得
+-   .envの「STRIPE_KEY」に「公開可能キー」、「STRIPE_SECRET」に「シークレットキー」を貼り付ける
 
 ## ER 図
 
