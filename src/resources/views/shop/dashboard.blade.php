@@ -64,9 +64,9 @@
       @if($shop)
       <div class="shop-img-wrap">
         @if(config('app.env') === 'production')
-        <img class="card-img" src="{{ Storage::disk('s3')->url("{$shop->img_filename}") }}" alt="{{ $shop->name }}">
+        <img class="shop-img" src="{{ Storage::disk('s3')->url("{$shop->img_filename}") }}" alt="{{ $shop->name }}">
         @else
-        <img class="card-img" src="{{ asset('storage/'.$shop->img_filename) }}" alt="{{ $shop->name }}">
+        <img class="shop-img" src="{{ asset('storage/'.$shop->img_filename) }}" alt="{{ $shop->name }}">
         @endif
       </div>
       @endif
