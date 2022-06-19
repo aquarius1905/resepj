@@ -325,37 +325,6 @@
     margin-bottom: 20px;
 }
 /*---------------------------------
-  会員登録完了画面
-  予約完了画面
-  予約変更完了画面
-  評価完了画面
----------------------------------*/
-.done {
-    width: 30%;
-    background-color: #fff;
-    margin: 0 auto;
-    text-align: center;
-    height: 300px;
-    border-radius: 5px;
-    position: relative;
-}
-.done-inner {
-    position: absolute;
-    width: 350px;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    padding: 10px 0;
-}
-.done-content
- {
-    font-size: 22px;
-    text-align: center;
-    letter-spacing: 0.05em;
-    margin-bottom: 40px;
-    font-weight: 500;
-}
-/*---------------------------------
   マイページ
 ---------------------------------*/
 .mypage-container {
@@ -659,18 +628,6 @@
     .register-btn-wrap {
         display: block;
         text-align: center;
-    }
-    /*---------------------------------
-        会員登録完了画面
-        予約完了画面
-        予約変更完了画面
-        評価完了画面
-    ---------------------------------*/
-    .done {
-        width: 90%;
-    }
-    .done-content {
-        font-size: 18px;
     }
     /*---------------------------------
         マイページ

@@ -24,28 +24,16 @@ class ShopRepresentativeRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:shop_representatives|max:255',
-            'password' => 'required|between:8,255'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'required' => ':attributeは入力必須です',
-            'email.email' => ':attributeの形式で入力してください',
-            'email.max' => ':attributeは255文字以内で入力してください',
-            'password.between' => ':attributeは8文字以上255文字以内で入力してください',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|string|unique:shop_representatives|max:255',
+            'password' => 'required|string|min:8|max:255'
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => '名前',
-            'email' => 'メールアドレス',
-            'password' => 'パスワード',
+            'name' => '店舗代表者名'
         ];
     }
 }

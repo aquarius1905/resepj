@@ -2,7 +2,7 @@
 @section('content')
 <div class="dashboard box-shadow">
   <h2 class="dashboard-ttl">店舗代表者登録</h2>
- <form class="register-form" action="{{ route('shop_represetative.store') }}" method="POST">
+  <form class="register-form" action="{{ route('shop_represetative.store') }}" method="POST">
     @csrf
     <div class="register-input-wrap">
       <img src="{{ asset('images/representative.png') }}" alt="name" class="register-img">
