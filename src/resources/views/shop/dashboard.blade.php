@@ -47,15 +47,18 @@
           <textarea class="shop-info-overview" id="overview" name="overview">{{ $shop ? $shop->overview : old('overview')}}</textarea>
         </div>
         @error('overview')<label class="error">{{ $message }}</label>@enderror
-        @for($i = 0; $i < 3; $i++) <div class="shop-info-item">
-          <label for="course" class="shop-info-lbl">Course{{$i + 1}}</label>
-          <input type="text" class="shop-info-course" id="course" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}"><label>コース</label></input>
-          <input type="number" class="shop-info-price" name="course_prices[]" value="{{ $courses ? $courses[$i]->price : old('course_prices.'.$i) }}" pattern="^[1-9][0-9]*$"><label>円</label></input>
+        <div class="courses">
+          @for($i = 0; $i < 3; $i++) <div class="shop-info-item">
+            <label for="course" class="shop-info-lbl">Course{{$i + 1}}</label>
+            <div class="course-content">
+              <input type="text" class="shop-info-course-input" id="course" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}">コース</input>
+              <input type="number" class="shop-info-price-input" name="course_prices[]" value="{{ $courses ? $courses[$i]->price : old('course_prices.'.$i) }}" pattern="^[1-9][0-9]*$">円</input>
+            </div>
+            @error('course_names.'.$i)<label class="error">{{ $message }}</label>@enderror
+            @error('course_prices.'.$i)<label class="error">{{ $message }}</label>@enderror
+        </div>
+        @endfor
       </div>
-      @error('course_names.'.$i)<label class="error">{{ $message }}</label>@enderror
-      @error('course_prices.'.$i)<label class="error">{{ $message }}</label>@enderror
-      @endfor
-
       <div class="shop-info-item">
         <label for="shop-img-file" class="shop-info-lbl">Image</label>
         <input type="file" class="shop-img-file" id="shop-img-file" name="img" accept="image/png, image/jpeg" onchange="previewImg(event)">
@@ -71,7 +74,7 @@
       </div>
       @endif
   </div>
-  <div>
+  <div class="btns">
     @if($shop)
     <button type="submit" class="shop-btn" onclick="confirmShopUpdate(event)">店舗情報を更新する</button>
     @else

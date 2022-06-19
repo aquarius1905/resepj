@@ -78,22 +78,27 @@
     font-size: 18px;
     border-radius: 6px;
 }
-.shop-info-course,
-.shop-info-price {
+.course-content {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    align-items: center;
+    width: 65%;
+}
+.shop-info-course-input,
+.shop-info-price-input {
     border: none;
     border-radius: 6px;
     padding: 0 10px;
     height: 40px;
     font-size: 18px;
-    width: 35%;
-    margin-right: 10px;
+    width: 55%;
 }
-.shop-info-price {
+.shop-info-price-input {
     width: 15%;
-    margin-left: 10px;
 }
-.shop-info-price::-webkit-inner-spin-button,
-.shop-info-price::-webkit-outer-spin-button {
+.shop-info-price-input::-webkit-inner-spin-button,
+.shop-info-price-input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
     -moz-appearance: textfield;
@@ -189,11 +194,21 @@
         box-sizing: border-box;
         width: 100%;
     }
-    .shop-info-course {
-        width: 30%;
+    .course-content {
+        display: block;
+        width: 100%;
     }
-    .shop-info-price {
-        width: 20%;
+    .shop-info-course-input,
+    .shop-info-price-input {
+        display: inline-block;
+        box-sizing: border-box;
+        margin: 0 10px 10px 0;
+    }
+    .shop-info-course-input {
+        width: 70%;
+    }
+    .shop-info-price-input {
+        width: 30%;
     }
     .shop-img-file {
         font-size: 18px;
