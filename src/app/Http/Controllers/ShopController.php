@@ -82,12 +82,12 @@ class ShopController extends Controller
     $shop_inputs = $request->except(['_token', 'course_names', 'course_prices']);
     $course = $request->only(['course_names', 'course_prices']);
     $img = $request->file('img');
-    if (app()->isLocal() || app()->runningUnitTests()) {
-      $path = $img->store('');
-      $shop_inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
-    } else {
+    if (config('app.env') === 'production') {
       $path = Storage::disk('s3')->put('/', $img);
       $shop_inputs['img_filename'] = $path;
+    } else {
+      $path = $img->store('');
+      $shop_inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
     }
     $shop = Shop::create($shop_inputs);
 
@@ -109,12 +109,12 @@ class ShopController extends Controller
       $inputs = $request->only([
         'name', 'area_id', 'genre_id', 'overview', 'img_filename'
       ]);
-      if (app()->isLocal() || app()->runningUnitTests()) {
-        $path = $img->store('');
-        $shop_inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
-      } else {
+      if (config('app.env') === 'production') {
         $path = Storage::disk('s3')->put('/', $img);
         $inputs['img_filename'] = $path;
+      } else {
+        $path = $img->store('');
+        $shop_inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
       }
       Shop::where('id', $id)->update($inputs);
     } else {

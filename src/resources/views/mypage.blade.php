@@ -126,10 +126,10 @@
           @foreach($likes as $like)
           <div class="like-shop-card box-shadow">
             <div class="card-img-container">
-              @if(app()->isLocal() || app()->runningUnitTests())
-              <img class="card-img" src="{{ asset('storage/'.$like->getShopImgFileName()) }}" alt="{{ $like->getShopName() }}">
-              @else
+              @if(config('app.env') === 'production')
               <img class="card-img" src="{{ Storage::disk('s3')->url("{$like->getShopImgFileName()}") }}" alt="{{ $like->getShopName() }}">
+              @else
+              <img class="card-img" src="{{ asset('storage/'.$like->getShopImgFileName()) }}" alt="{{ $like->getShopName() }}">
               @endif
             </div>
             <div class="card-content">

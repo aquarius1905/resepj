@@ -13,14 +13,15 @@
 <div class="detail">
   <div class="shop-detail">
     <div class="shop-ttl-container">
-      <a href="/" class="index-btn box-shadow"><</a>
-      <h2 class="shop-ttl">{{ $item->name }}</h2>
+      <a href="/" class="index-btn box-shadow">
+        < </a>
+          <h2 class="shop-ttl">{{ $item->name }}</h2>
     </div>
     <div class="shop-img-container">
-      @if(app()->isLocal() || app()->runningUnitTests())
-        <img src="{{ asset('storage/'.$item->img_filename) }}" alt="{{ $item->name }}" class="shop-img">
+      @if(config('app.env') === 'production')
+      <img class="shop-img" src="{{ Storage::disk('s3')->url("{$item->img_filename}") }}" alt="{{ $item->name }}">
       @else
-        <img class="card-img" src="{{ Storage::disk('s3')->url("{$item->img_filename}") }}" alt="{{ $item->name }}">
+      <img class="shop-img" src="{{ asset('storage/'.$item->img_filename) }}" alt="{{ $item->name }}">
       @endif
     </div>
     <div class="shop-tag-container">
@@ -45,16 +46,15 @@
         <div class="select-wrap">
           <select name="time" class="reservation-select" onchange="changeTime()">
             @foreach (Config::get('time.times') as $time)
-              <option value="{{ old('time', $time) }}" @if(old('time')===$time) selected @endif>{{ $time }}</option>
+            <option value="{{ old('time', $time) }}" @if(old('time')===$time) selected @endif>{{ $time }}</option>
             @endforeach
           </select>
         </div>
         @error('time')<label class="error">{{ $message }}</label>@enderror
         <div class="select-wrap">
           <select name="number" class="reservation-select" onchange="changeNumber()">
-            @for ($number = 1; $number <= 100; $number++)
-              <option value="{{ old('number', $number) }}" @if((int)old('number')===$number) selected @endif>{{ $number }}人</option>
-            @endfor
+            @for ($number = 1; $number <= 100; $number++) <option value="{{ old('number', $number) }}" @if((int)old('number')===$number) selected @endif>{{ $number }}人</option>
+              @endfor
           </select>
         </div>
         @error('number')<label class="error">{{ $message }}</label>@enderror
@@ -62,7 +62,7 @@
         <div class="select-wrap">
           <select name="course_id" class="reservation-select" onchange="changeCourse()">
             @foreach ($item->courses as $course)
-              <option value="{{ old('course_id', $course->id) }}" @if((int)old('course_id')===($course->id)) selected @endif>{{ $course->name }}コース</option>
+            <option value="{{ old('course_id', $course->id) }}" @if((int)old('course_id')===($course->id)) selected @endif>{{ $course->name }}コース</option>
             @endforeach
           </select>
         </div>
