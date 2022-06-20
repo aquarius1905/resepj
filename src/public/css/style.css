@@ -385,10 +385,10 @@
     font-size: 18px;
     padding: 0 30px 30px;
 }
-.reservation-change-date {
-    margin-bottom: 0;
-    width: 60%;
+.reservation-select-wrap {
+    width: 70%;
 }
+.reservation-change-date-wrap,
 .reservation-change-select-wrap {
     width: 60%;
 }
@@ -396,7 +396,8 @@
     top: 50%;
     right: 4%;
 }
-.reservation-change-select {
+.reservation-change-select,
+.reservation-change-date {
     width: 100%;
     margin-bottom: 0;
 }
@@ -658,7 +659,7 @@
     .shop-rating-item-lbl{
         width: 30%;
     }
-    .reservation-change-date,
+    .reservation-change-date-wrap,
     .reservation-change-select-wrap {
         width: 70%;
     }

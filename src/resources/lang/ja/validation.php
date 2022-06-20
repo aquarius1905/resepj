@@ -89,7 +89,7 @@ return [
     'min'                  => [
         'numeric' => ':attributeには、:min以上の数字を指定してください。',
         'file'    => ':attributeには、:min kB以上のファイルを指定してください。',
-        'string'  => ':attributeは:min文字以上で指定してください',
+        'string'  => ':attributeは:min文字以上で入力してください',
         'array'   => ':attributeは:min個以上指定してください。',
     ],
     'multiple_of'          => ':attributeには、:valueの倍数を指定してください。',

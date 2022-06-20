@@ -6,18 +6,17 @@
   min-height: 700px;
   padding-bottom: 180px;
   box-sizing: border-box;
+  color: #fff;
 }
 .reservation-ttl {
   padding: 30px;
   font-size: 28px;
-  color: #fff;
 }
 .reservation-form-wrap {
   padding: 0 30px 30px;
 }
 .reservation-confirm {
   background-color: #4d7fff;
-  color: #fff;
   padding: 30px;
   width: 80%;
   height: auto;

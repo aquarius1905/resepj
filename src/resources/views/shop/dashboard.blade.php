@@ -49,9 +49,9 @@
         @error('overview')<label class="error">{{ $message }}</label>@enderror
         <div class="courses">
           @for($i = 0; $i < 3; $i++) <div class="shop-info-item">
-            <label for="course" class="shop-info-lbl">Course{{$i + 1}}</label>
+            <label for="{{'course'.$i + 1 }}" class="shop-info-lbl">Course{{$i + 1}}</label>
             <div class="course-content">
-              <input type="text" class="shop-info-course-input" id="course" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}">&nbsp;コース&nbsp;&nbsp;</input>
+              <input type="text" class="shop-info-course-input" id="{{'course'.$i + 1 }}" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}">&nbsp;コース&emsp;</input>
               <input type="number" class="shop-info-price-input" name="course_prices[]" value="{{ $courses ? $courses[$i]->price : old('course_prices.'.$i) }}" pattern="^[1-9][0-9]*$">&nbsp;円</input>
             </div>
         </div>
@@ -95,8 +95,9 @@
         <th scope="col">Name</th>
         <th scope="col">Date</th>
         <th scope="col">Time</th>
-        <th scope="col">Course</th>
         <th scope="col">Number</th>
+        <th scope="col">Course</th>
+        <th scope="col">Price</th>
       </tr>
     </thead>
     <tbody>
@@ -106,8 +107,9 @@
         <td data-label="Name">{{ $reservation->getUserName() }}</td>
         <td data-label="Date">{{ $reservation->date->format('Y-m-d') }}</td>
         <td data-label="Time">{{ $reservation->time->format('H:i') }}</td>
-        <td data-label="Course">{{ $reservation->getCourseName() }}</td>
         <td data-label="Number">{{ $reservation->number }}人</td>
+        <td data-label="Course">{{ $reservation->getCourseName() }}コース</td>
+        <td data-label="Price">{{ $reservation->getPrice() }}円</td>
       </tr>
       @endforeach
     </tbody>

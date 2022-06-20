@@ -46,6 +46,10 @@ class ReservationCompletionMail extends Mailable
         return $this->from($this->from_email)
             ->subject($subject)
             ->view('emails.reservation')
-            ->with(['reservation' => $this->reservation, 'course' => $this->course]);
+            ->with([
+                'reservation' => $this->reservation,
+                'course' => $this->course,
+                'cancel_flg' => $this->change_flg
+            ]);
     }
 }

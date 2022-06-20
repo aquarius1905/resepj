@@ -34,7 +34,9 @@
                 </div>
                 <div class="status-item">
                   <label class="status-item-lbl">Date</label>
-                  <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="reservation-date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                  <div class="reservation-change-date-wrap">
+                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="reservation-date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                  </div>
                 </div>
                 <div class="status-item">
                   <label class="status-item-lbl">Time</label>
