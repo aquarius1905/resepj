@@ -7,4 +7,5 @@
   メールをお送りしましたので<br>
   ご確認下さい
 </p>
+<a href="/" class="btn">戻る</a>
 @endsection

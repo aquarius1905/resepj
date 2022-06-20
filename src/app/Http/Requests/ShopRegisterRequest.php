@@ -37,10 +37,8 @@ class ShopRegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => ':attributeは入力必須です',
-            'max' => ':attributeは255文字以内で入力してください',
             'img.required' => '写真は添付必須です',
-            'regex' => ':attributeには半角数字、かつ正しい入力形式を指定してください'
+            'regex' => ':attributeには1以上の半角数字を入力してください'
         ];
     }
 

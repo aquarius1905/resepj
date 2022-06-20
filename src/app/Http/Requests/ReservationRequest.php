@@ -34,7 +34,6 @@ class ReservationRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => ':attributeは入力必須です',
             'date.date' => '日付の形式で入力してください',
             'date.after' => '明日以降の日付を指定してください',
             'time.date_format' => '時間は時:分で入力してください',

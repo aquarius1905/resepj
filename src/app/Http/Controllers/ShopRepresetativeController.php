@@ -25,7 +25,7 @@ class ShopRepresetativeController extends Controller
         $courses = null;
         $reservations = null;
         $ratings = null;
-        if($shop) {
+        if ($shop) {
             $shop_id = $shop->id;
             //コース
             $courses = Course::where('shop_id', $shop_id)->get();
@@ -63,6 +63,6 @@ class ShopRepresetativeController extends Controller
         $shop_represetative = ShopRepresentative::create($inputs);
         event(new RepresetativeRegistered($shop_represetative));
 
-        return view('/admin/done');
+        return view('/admin/thanks');
     }
 }

@@ -47,15 +47,6 @@
                   </div>
                 </div>
                 <div class="status-item">
-                  <label class="status-item-lbl">Course</label>
-                  <label>{{ $reservation->getCourseName() }}コース</label>
-                  <input type="hidden" name="course_id" value="{{ $reservation->getCourseId() }}">
-                </div>
-                <div class="status-item">
-                  <label class="status-item-lbl">Price</label>
-                  <label id="price">{{ $reservation->getPrice() }}円</label>
-                </div>
-                <div class="status-item">
                   <label class="status-item-lbl">Number</label>
                   <div class="select-wrap reservation-change-select-wrap">
                     <input type="hidden" id="course-price" value="{{ $reservation->getCoursePrice() }}">
@@ -64,6 +55,15 @@
                         @endfor
                     </select>
                   </div>
+                </div>
+                <div class="status-item">
+                  <label class="status-item-lbl">Course</label>
+                  <label>{{ $reservation->getCourseName() }}コース</label>
+                  <input type="hidden" name="course_id" value="{{ $reservation->getCourseId() }}">
+                </div>
+                <div class="status-item">
+                  <label class="status-item-lbl">Price</label>
+                  <label id="price">{{ $reservation->getPrice() }}円</label>
                 </div>
                 <div class="status-item">
                   <label class="status-item-lbl">QRCode</label>

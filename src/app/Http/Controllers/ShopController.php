@@ -104,6 +104,7 @@ class ShopController extends Controller
   public function update(ShopUpdateRequest $request, $id)
   {
     //店舗の更新
+    $inputs = null;
     $img = $request->file('img');
     if ($img) {
       $inputs = $request->only([
@@ -114,15 +115,14 @@ class ShopController extends Controller
         $inputs['img_filename'] = $path;
       } else {
         $path = $img->store('');
-        $shop_inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
+        $inputs['img_filename'] = pathinfo($path, PATHINFO_BASENAME);
       }
-      Shop::where('id', $id)->update($inputs);
     } else {
       $inputs = $request->only([
         'name', 'area_id', 'genre_id', 'overview'
       ]);
-      Shop::where('id', $id)->update($inputs);
     }
+    Shop::where('id', $id)->update($inputs);
 
     //コースの更新
     $course_ids = Course::where('shop_id', $id)->get(['id'])->toArray();

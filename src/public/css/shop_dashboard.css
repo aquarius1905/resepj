@@ -81,10 +81,9 @@
 }
 .course-content {
     display: flex;
-    justify-content: space-around;
     box-sizing: border-box;
     align-items: center;
-    width: 65%;
+    width: 70%;
 }
 .shop-info-course-input,
 .shop-info-price-input {
@@ -93,7 +92,7 @@
     padding: 0 10px;
     height: 40px;
     font-size: 18px;
-    width: 55%;
+    width: 60%;
 }
 .shop-info-price-input {
     width: 15%;
@@ -204,12 +203,10 @@
         display: inline-block;
         box-sizing: border-box;
         margin: 0 10px 10px 0;
-    }
-    .shop-info-course-input {
         width: 70%;
     }
     .shop-info-price-input {
-        width: 30%;
+        width: 40%;
     }
     .shop-img-file {
         font-size: 18px;

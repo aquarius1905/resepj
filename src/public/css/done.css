@@ -30,6 +30,9 @@
   margin-bottom: 40px;
   font-weight: 500;
 }
+.msg-content {
+  margin-bottom: 0;
+}
 @media screen and (max-width: 768px) {
   .done {
     width: 90%;

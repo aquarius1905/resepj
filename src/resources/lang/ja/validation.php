@@ -14,7 +14,7 @@ return [
     */
 
     'accepted'             => ':attributeを承認してください。',
-    'accepted_if' => ':otherが:valueの場合、:attributeを承認してください。',
+    'accepted_if'          => ':otherが:valueの場合、:attributeを承認してください。',
     'active_url'           => ':attributeが有効なURLではありません。',
     'after'                => ':attributeには、:dateより後の日付を指定してください。',
     'after_or_equal'       => ':attributeには、:date以降の日付を指定してください。',
@@ -81,7 +81,7 @@ return [
     'max'                  => [
         'numeric' => ':attributeには、:max以下の数字を指定してください。',
         'file'    => ':attributeには、:max kB以下のファイルを指定してください。',
-        'string'  => ':attributeは:max文字以下で指定してください',
+        'string'  => ':attributeは:max文字以内で入力してください',
         'array'   => ':attributeは:max個以下指定してください。',
     ],
     'mimes'                => ':attributeには:valuesタイプのファイルを指定してください。',
@@ -92,7 +92,7 @@ return [
         'string'  => ':attributeは:min文字以上で指定してください',
         'array'   => ':attributeは:min個以上指定してください。',
     ],
-    'multiple_of' => ':attributeには、:valueの倍数を指定してください。',
+    'multiple_of'          => ':attributeには、:valueの倍数を指定してください。',
     'not_in'               => '選択された:attributeは正しくありません。',
     'not_regex'            => ':attributeの形式が正しくありません。',
     'numeric'              => ':attributeには、数字を指定してください。',

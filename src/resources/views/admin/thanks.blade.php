@@ -6,4 +6,5 @@
   店舗代表者のメールアドレス宛に<br>
   メールを送信しました<br>
 </p>
+<a href="/admin/dashboard" class="btn">戻る</a>
 @endsection

@@ -51,11 +51,13 @@
           @for($i = 0; $i < 3; $i++) <div class="shop-info-item">
             <label for="course" class="shop-info-lbl">Course{{$i + 1}}</label>
             <div class="course-content">
-              <input type="text" class="shop-info-course-input" id="course" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}">コース</input>
-              <input type="number" class="shop-info-price-input" name="course_prices[]" value="{{ $courses ? $courses[$i]->price : old('course_prices.'.$i) }}" pattern="^[1-9][0-9]*$">円</input>
+              <input type="text" class="shop-info-course-input" id="course" name="course_names[]" value="{{ $courses ? $courses[$i]->name : old('course_names.'.$i) }}">&nbsp;コース&nbsp;&nbsp;</input>
+              <input type="number" class="shop-info-price-input" name="course_prices[]" value="{{ $courses ? $courses[$i]->price : old('course_prices.'.$i) }}" pattern="^[1-9][0-9]*$">&nbsp;円</input>
             </div>
-            @error('course_names.'.$i)<label class="error">{{ $message }}</label>@enderror
-            @error('course_prices.'.$i)<label class="error">{{ $message }}</label>@enderror
+        </div>
+        <div>
+          @error('course_names.'.$i)<label class="error">{{ $message }}</label>@enderror
+          @error('course_prices.'.$i)<label class="error">{{ $message }}</label>@enderror
         </div>
         @endfor
       </div>

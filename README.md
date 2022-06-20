@@ -502,13 +502,23 @@
     MAIL_USERNAME=null
     MAIL_PASSWORD=null
     MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS="送信側のメールアドレス"
+    MAIL_FROM_ADDRESS="管理者のメールアドレス"
     MAIL_FROM_NAME="${APP_NAME}"
 
     ～～省略～～
 
     STRIPE_KEY=
     STRIPE_SECRET=
+    ```
+
+### APP_KEYの設定
+
+-   「make init」を行っても「.env」の「APP_KEY」が空欄の場合は、
+    ローカルの「src」ディレクトリ直下で以下のコマンドを実行する
+
+    ```
+    $ composer install
+    $ php artisan key:generate
     ```
 
 ### 推奨開発パッケージのインストール

@@ -27,7 +27,9 @@ class ReservationController extends Controller
         //予約完了メールを送信
         $this->sendMail($reservation, false, false);
 
-        return view("done");
+        return view('done', [
+            'status' => 'reserve'
+        ]);
     }
 
     public function destroy($id)
@@ -39,7 +41,9 @@ class ReservationController extends Controller
         //予約キャンセルメールを送信
         $this->sendMail($reservation, false, true);
 
-        return back();
+        return view('done', [
+            'status' => 'cancel'
+        ]);
     }
 
     public function update(ReservationRequest $request, $id)
@@ -51,7 +55,9 @@ class ReservationController extends Controller
         $reservation = Reservation::find($id);
         $this->sendMail($reservation, true, false);
 
-        return view('change_done');
+        return view('done', [
+            'status' => 'change'
+        ]);
     }
 
     public function updateRatingFlg($id)
