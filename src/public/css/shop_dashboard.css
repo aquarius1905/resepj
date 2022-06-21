@@ -211,6 +211,10 @@
     .shop-img-file {
         font-size: 18px;
     }
+    .shop-img-wrap {
+        width: 100%;
+        margin-left: 0;
+    }
     .rating-info-ttl {
         margin: 30px 0;
     }

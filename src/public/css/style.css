@@ -167,17 +167,14 @@
     justify-content: space-between;
     letter-spacing: 1px;
 }
-
 .shop-detail {
     width: 45%;
 }
-
 .shop-ttl-container {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
 }
-
 .index-btn {
     display: inline-block;
     background-color: #fff;
@@ -188,29 +185,23 @@
     border-radius: 5px;
     margin-right: 15px;
 }
-
 .shop-ttl {
     font-size: 30px;
 }
-
 .shop-img-container {
     margin-bottom: 30px;
 }
-
 .shop-img {
     max-width: 100%;
     max-height: 100%;
 }
-
 .shop-tag-container {
     display: flex;
     margin-bottom: 30px;
 }
-
 .shop-overview {
     line-height: 30px;
 }
-
 .reservation-date {
     border: none;
     border-radius: 6px;
@@ -220,7 +211,6 @@
     width: 60%;
     margin-bottom: 20px;
 }
-
 .reservation-select {
     -webkit-appearance: none;
     appearance: none;
@@ -232,22 +222,18 @@
     width: 95%;
     margin-bottom: 20px;
 }
-
 .reservation-select::-ms-expand {
     display: none;
 }
-
 .confirm-item,
 .status-item {
     margin-bottom: 20px;
     display: flex;
 }
-
 .confirm-item:last-child,
 .status-item:last-child {
     margin-bottom: 0;
 }
-
 .confirm-item-lbl,
 .status-item-lbl,
 .rating-item-lbl,
@@ -575,43 +561,31 @@
         display: block;
         letter-spacing: 1px;
     }
-
     .shop-detail {
         width: 100%;
         margin-bottom: 40px;
     }
-
     .shop-ttl-container {
         display: flex;
         align-items: center;
         margin-bottom: 30px;
     }
-
     .shop-ttl {
         font-size: 30px;
     }
-
     .shop-img-container {
         margin-bottom: 30px;
     }
-
-    .shop-img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-
     .shop-tag-container {
         display: flex;
         margin-bottom: 30px;
     }
-    
     .reservation-date {
         width: 95%;
     }
     .reservation-select {
         width: 100%;
     }
-
     .confirm-item-lbl {
         width: 40%;
     }
