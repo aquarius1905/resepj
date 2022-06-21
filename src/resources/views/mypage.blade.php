@@ -33,15 +33,15 @@
                   <label>{{ $reservation->getShopName() }}</label>
                 </div>
                 <div class="status-item">
-                  <label class="status-item-lbl">Date</label>
+                  <label class="status-item-lbl" for="{{ 'date'.$loop->index }}">Date</label>
                   <div class="reservation-change-date-wrap">
-                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="reservation-date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="{{ 'date'.$loop->index }}" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
                   </div>
                 </div>
                 <div class="status-item">
-                  <label class="status-item-lbl">Time</label>
+                  <label class="status-item-lbl" for="{{ 'time'.$loop->index }}">Time</label>
                   <div class="select-wrap reservation-change-select-wrap">
-                    <select name="time" class="reservation-select reservation-change-select">
+                    <select name="time" class="reservation-select reservation-change-select" id="{{ 'time'.$loop->index }}">
                       @foreach (Config::get('time.times') as $time)
                       <option value="{{ $time }}" @if($time==$reservation->time->format('H:i')) selected @endif>{{ $time }}</option>
                       @endforeach
@@ -49,10 +49,10 @@
                   </div>
                 </div>
                 <div class="status-item">
-                  <label class="status-item-lbl">Number</label>
+                  <label class="status-item-lbl" for="{{ 'number'.$loop->index }}">Number</label>
                   <div class="select-wrap reservation-change-select-wrap">
-                    <input type="hidden" id="course-price" value="{{ $reservation->getCoursePrice() }}">
-                    <select name="number" class="reservation-select reservation-change-select" onchange="changeNumberAndPrice()">
+                    <input type="hidden" id="{{ 'course-price'.$loop->index }}" value="{{ $reservation->getCoursePrice() }}">
+                    <select name="number" class="reservation-select reservation-change-select" id="{{ 'number'.$loop->index }}" onchange="changeNumberAndPrice('<?= $loop->index ?>')">
                       @for ($number = 1; $number <= 100; $number++) <option value="{{ $number }}" @if($number==$reservation->number) selected @endif>{{ $number }}人</option>
                         @endfor
                     </select>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="status-item">
                   <label class="status-item-lbl">Price</label>
-                  <label id="price">{{ $reservation->getPrice() }}円</label>
+                  <label id="{{ 'price'.$loop->index }}">{{ $reservation->getPrice() }}円</label>
                 </div>
                 <div class="status-item">
                   <label class="status-item-lbl">QRCode</label>
