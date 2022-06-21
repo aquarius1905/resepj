@@ -93,7 +93,7 @@ class ShopTest extends TestCase
             'name' => 'C',
             'price' => 7000
         ]);
-        $this->assertDatabaseHas('shops', [
+        $this->assertDatabaseHas('courses', [
             'shop_id' => $shop->id,
             'name' => 'C',
             'price' => 7000
