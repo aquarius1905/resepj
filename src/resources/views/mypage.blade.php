@@ -51,7 +51,6 @@
                 <div class="status-item">
                   <label class="status-item-lbl" for="{{ 'number'.$loop->index }}">Number</label>
                   <div class="select-wrap reservation-change-select-wrap">
-                    <input type="hidden" id="{{ 'course-price'.$loop->index }}" value="{{ reservation->getCoursePrice() }}">
                   </div>
                 </div>
                 <div class="status-item">
