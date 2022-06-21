@@ -21,11 +21,6 @@ class Shop extends Model
         return $this->hasMany(Reservation::class);
     }
 
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
-
     public function courses()
     {
         return $this->hasMany(Course::class);

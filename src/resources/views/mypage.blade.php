@@ -51,7 +51,11 @@
                 <div class="status-item">
                   <label class="status-item-lbl" for="{{ 'number'.$loop->index }}">Number</label>
                   <div class="select-wrap reservation-change-select-wrap">
-                    <input type="hidden" id="{{ 'course-price'.$loop->index }}" value="{{ reservation->getCoursePrice() }}">
+                    <input type="hidden" id="{{ 'course-price'.$loop->index }}" value="{{ $reservation->getCoursePrice() }}">
+                    <select name="number" class="reservation-select reservation-change-select" id="{{ 'number'.$loop->index }}" onchange="changeNumberAndPrice('<?= $loop->index ?>')">
+                      @for ($number = 1; $number <= 100; $number++) <option value="{{ $number }}" @if($number==$reservation->number) selected @endif>{{ $number }}人</option>
+                        @endfor
+                    </select>
                   </div>
                 </div>
                 <div class="status-item">
