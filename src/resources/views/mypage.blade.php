@@ -24,6 +24,30 @@
               <button type="submit" class="reservation-delete-btn" onclick="confirmDeletion(event)"><img src="images/cancel.png" alt="clock"></button>
             </form>
           </div>
+          <div>
+            <form method="POST" action="{{ route('reservation.update', ['reservation_id' => $reservation->id]) }}" class="reservation-update-form" name="reservation_update_form">
+              @csrf
+              <div class="reservation-status-content">
+                <div class="status-item">
+                  <label class="status-item-lbl">Shop</label>
+                  <label>{{ $reservation->getShopName() }}</label>
+                </div>
+                <div class="status-item">
+                  <label class="status-item-lbl" for="{{ 'date'.$loop->index }}">Date</label>
+                  <div class="reservation-change-date-wrap">
+                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="{{ 'date'.$loop->index }}" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                  </div>
+                </div>
+                <div class="status-item">
+                  <label class="status-item-lbl">QRCode</label>
+                  <label>{!! QrCode::generate(url('/reservation/'.$reservation->id)) !!}</label>
+                </div>
+              </div>
+              <div>
+                <button type="submit" class="reservation-change-btn" onclick="confirmChangeReservation(event)">予約を変更する</button>
+              </div>
+            </form>
+          </div>
         </div>
         @endforeach
         <div class="shop-rating">
