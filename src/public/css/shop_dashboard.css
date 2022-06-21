@@ -256,7 +256,7 @@
     }
     .reservation-info-table td:last-child,
     .rating-info-table td:last-child {
-        border-bottom: 0;
+        border-bottom: 1px solid #fff;
     }
     .reservation-info-table td::before,
     .rating-info-table td::before {
