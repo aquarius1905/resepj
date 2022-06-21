@@ -39,6 +39,16 @@
                   </div>
                 </div>
                 <div class="status-item">
+                  <label class="status-item-lbl" for="{{ 'time'.$loop->index }}">Time</label>
+                  <div class="select-wrap reservation-change-select-wrap">
+                    <select name="time" class="reservation-select reservation-change-select" id="{{ 'time'.$loop->index }}">
+                      @foreach (Config::get('time.times') as $time)
+                      <option value="{{ $time }}" @if($time==$reservation->time->format('H:i')) selected @endif>{{ $time }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="status-item">
                   <label class="status-item-lbl">Course</label>
                   <label>{{ $reservation->getCourseName() }}コース</label>
                   <input type="hidden" name="course_id" value="{{ $reservation->getCourseId() }}">
