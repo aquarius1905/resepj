@@ -19,6 +19,7 @@ class UserController extends Controller
     $reservations = Reservation::with(['user', 'shop', 'course'])
       ->where('user_id', $user->id)
       ->where('date', '>=', $today)
+      ->where('rating_flg', false)
       ->orderBy('date')
       ->get();
 
