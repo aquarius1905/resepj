@@ -39,6 +39,15 @@
                   </div>
                 </div>
                 <div class="status-item">
+                  <label class="status-item-lbl">Course</label>
+                  <label>{{ $reservation->getCourseName() }}コース</label>
+                  <input type="hidden" name="course_id" value="{{ $reservation->getCourseId() }}">
+                </div>
+                <div class="status-item">
+                  <label class="status-item-lbl">Price</label>
+                  <label id="{{ 'price'.$loop->index }}">{{ $reservation->getPrice() }}円</label>
+                </div>
+                <div class="status-item">
                   <label class="status-item-lbl">QRCode</label>
                   <label>{!! QrCode::generate(url('/reservation/'.$reservation->id)) !!}</label>
                 </div>
