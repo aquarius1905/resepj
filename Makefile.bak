@@ -105,5 +105,3 @@ ide-helper:
 	docker compose exec app php artisan ide-helper:generate
 	docker compose exec app php artisan ide-helper:meta
 	docker compose exec app php artisan ide-helper:models --nowrite
-schedule-work:
-	docker compose exec app php artisan schedule:work
