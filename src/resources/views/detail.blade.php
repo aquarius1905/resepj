@@ -40,7 +40,7 @@
       <div class="reservation-form-wrap">
         <div class="date-wrap">
           <input type="hidden" name="shop_id" value="{{ $item->id }}">
-          <input type="date" name="date" class="reservation-date" onchange="changeDate()" value="<?php echo e(old('date', date('Y-m-d', strtotime('+1 day')))); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+          <input type="date" name="date" class="reservation-date" onchange="changeDate()" value="<?php echo e(old('date', date('Y-m-d', strtotime('+1 day')))); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required>
         </div>
         @error('date')<label class="error">{{ $message }}</label>@enderror
         <div class="select-wrap">

@@ -35,7 +35,7 @@
                 <div class="status-item">
                   <label class="status-item-lbl" for="{{ 'date'.$loop->index }}">Date</label>
                   <div class="reservation-change-date-wrap">
-                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="{{ 'date'.$loop->index }}" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                    <input type="date" name="date" value="{{ $reservation->date->format('Y-m-d') }}" class="reservation-date reservation-change-date" id="{{ 'date'.$loop->index }}" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required>
                   </div>
                 </div>
                 <div class="status-item">
