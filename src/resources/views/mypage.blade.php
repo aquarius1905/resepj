@@ -16,6 +16,14 @@
         <h3 class="reservation-status-ttl">予約状況</h3>
         @foreach ($reservations as $reservation)
         <div class="reservation-detail box-shadow">
+          <div class="reservation-detail-ttl-wrap">
+            <img src="images/clock.png" alt="clock" class="clock-img">
+            <h4 class="reservation-detail-ttl">予約{{ $loop->index + 1 }}</h4>
+            <form method="POST" action="{{ route('reservation.destroy', ['reservation_id' => $reservation->id ]) }}" class="reservation-delete-form">
+              @csrf
+              <button type="submit" class="reservation-delete-btn" onclick="confirmDeletion(event)"><img src="images/cancel.png" alt="clock"></button>
+            </form>
+          </div>
         </div>
         @endforeach
         <div class="shop-rating">
