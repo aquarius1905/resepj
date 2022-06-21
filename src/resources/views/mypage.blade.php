@@ -12,6 +12,55 @@
       <h2>{{ $user->name }}さん</h2>
     </div>
     <div class="mypage-content-wrap">
+      <div class="reservation-status">
+        <h3 class="reservation-status-ttl">予約状況</h3>
+        @foreach ($reservations as $reservation)
+        <div class="reservation-detail box-shadow">
+        </div>
+        @endforeach
+        <div class="shop-rating">
+          <h4 class="shop-rating-ttl">評価</h4>
+          @foreach ($ratingTargets as $ratingTarget)
+          <div class="reservation-rating-box box-shadow">
+            <div class="shop-rating-content">
+              <div class="shop-rating-item">
+                <label class="shop-rating-item-lbl">Shop</label>
+                <label>{{ $ratingTarget->getShopName() }}</label>
+                <input type="hidden" value="{{ $ratingTarget->getShopId() }}">
+              </div>
+              <div class="shop-rating-item">
+                <label class="shop-rating-item-lbl">Date</label>
+                <label>{{ $ratingTarget->date->format('Y-m-d') }}</label>
+              </div>
+              <div class="shop-rating-item">
+                <label class="shop-rating-item-lbl">Time</label>
+                <label>{{ $ratingTarget->time->format('H:i') }}</label>
+              </div>
+              <div class="shop-rating-item">
+                <label class="shop-rating-item-lbl">Course</label>
+                <label>{{ $ratingTarget->getCourseName() }}コース</label>
+              </div>
+              <div class="shop-rating-item">
+                <label class="shop-rating-item-lbl">Number</label>
+                <label>{{ $ratingTarget->number }}人</label>
+              </div>
+            </div>
+            @if($ratingTarget->rating)
+            <div class="rated-lbl-wrap">
+              <label class="rated-lbl">評価済</label>
+            </div>
+            @else
+            <div>
+              <form method="GET" action="{{ route('rating.show', ['reservation_id' => $ratingTarget->id]) }}">
+                @csrf
+                <button type="submit" class="shop-rating-btn">評価する</button>
+              </form>
+            </div>
+            @endif
+          </div>
+          @endforeach
+        </div>
+      </div>
       <div class="favorite-shops">
         <h3 class="favorite-shoplist-ttl">お気に入り店舗</h3>
         <div class="favorite-shoplist-wrap">
