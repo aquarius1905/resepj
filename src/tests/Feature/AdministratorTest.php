@@ -3,9 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 use App\Models\Administrator;
 
@@ -19,9 +17,9 @@ class AdministratorTest extends TestCase
 
         //管理者
         $this->admin = Administrator::factory()->create([
-            'name'=>'管理者',
-            'email'=>'admin@sample.com',
-            'password'=> Hash::make('admin')
+            'name' => '管理者',
+            'email' => 'admin@sample.com',
+            'password' => Hash::make('admin')
         ]);
     }
 
@@ -68,6 +66,5 @@ class AdministratorTest extends TestCase
 
         // ログアウトされていることを確認
         $this->assertGuest($guard = 'admin');
-
     }
 }

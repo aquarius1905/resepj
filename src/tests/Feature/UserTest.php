@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 use App\Models\User;
@@ -30,14 +29,14 @@ class UserTest extends TestCase
         //ユーザー登録
         $hashed_password = Hash::make('taro');
         $user = User::factory()->create([
-            'name'=>'taro',
-            'email'=>'taro@sample.com',
-            'password'=>$hashed_password
+            'name' => 'taro',
+            'email' => 'taro@sample.com',
+            'password' => $hashed_password
         ]);
-        $this->assertDatabaseHas('users',[
-            'name'=>'taro',
-            'email'=>'taro@sample.com',
-            'password'=>$hashed_password
+        $this->assertDatabaseHas('users', [
+            'name' => 'taro',
+            'email' => 'taro@sample.com',
+            'password' => $hashed_password
         ]);
 
         // 認証されていないことを確認

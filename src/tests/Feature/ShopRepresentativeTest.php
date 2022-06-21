@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 use App\Models\ShopRepresentative;
@@ -26,14 +25,14 @@ class ShopRepresentativeTest extends TestCase
         //店舗代表者登録
         $hashed_password = Hash::make('shoprepresentative');
         $shop_representative = ShopRepresentative::factory()->create([
-            'name'=>'店舗代表者',
-            'email'=>'shop_represetative@sample.com',
-            'password'=> $hashed_password
+            'name' => '店舗代表者',
+            'email' => 'shop_represetative@sample.com',
+            'password' => $hashed_password
         ]);
-        $this->assertDatabaseHas('shop_representatives',[
-            'name'=>'店舗代表者',
-            'email'=>'shop_represetative@sample.com',
-            'password'=>$hashed_password
+        $this->assertDatabaseHas('shop_representatives', [
+            'name' => '店舗代表者',
+            'email' => 'shop_represetative@sample.com',
+            'password' => $hashed_password
         ]);
 
         // 認証されていないことを確認
